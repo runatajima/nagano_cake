@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,9 +9,27 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
+
   <body>
+     <li>
+        <%= link_to "/admins/items" , class: 'nav-link' do %>
+       <span class="text-right"> 商品一覧</span>
+       <% end %>
+     </li>
+
+     <li>
+        <%= link_to "/admins/genres" , class: 'nav-link' do %>
+       <span class="text-right"> ジャンル一覧</span>
+       <% end %>
+     </li>
+
+
     <%= yield %>
+    <footer>
+
+    </footer>
   </body>
 </html>
