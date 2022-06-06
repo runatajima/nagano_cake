@@ -1,11 +1,18 @@
-<h3><商品詳細></h3>
- <% if @item.image.attached? %>
-  <%= image_tag @item.image, size: "300x300" %>
-<% else %>
-  <%= image_tag 'no_image', size: "300x300" %>
-<% end %>
+<div>
+  <h3><商品詳細></h3>
 
-<tbody>
+<div>
+   <% if @item.image.attached? %>
+    <%= image_tag @item.image, size: "300x300" %>
+   <% else %>
+    <%= image_tag 'no_image', size: "300x300" %>
+   <% end %>
+</div>
+
+<div>
+  <br><br><br><br>
+<div>
+  <tbody>
 
     <tr>
       <td>商品名</td>
@@ -17,7 +24,12 @@
        <td><%= @item.genre.name %></td>
     </tr>
     <tr>
-      <td>税込み価格<br>（税抜き価格）</td>
+      <td>
+        <div>
+          税込価格<br>
+          (税抜価格)
+        </div>
+      </td>
       <td><%= @item.add_tax_price.to_s(:dalimited) %>,（<%= @item.price %>）円</td>
 
     </tr>
@@ -30,6 +42,13 @@
              <% end %>
       </td>
     </tr>
+    <tr>
+      <td><%= link_to "Edit", edit_admins_item_path(@item) %></td>
+    </tr>
 
   </tbody>
 </table>
+
+</div>
+</div>
+</div>
