@@ -1,13 +1,12 @@
 class Admins::ItemsController < ApplicationController
+  before_action :authenticate_admin!,only: [:create,:edit,:update,:index, :show, :new]
+  
   def new
-     @items = Item.new
+     @item = Item.new
   end
   def index
      @items = Item.all
      @item =Item.new
-  end
-
-  def edit
   end
 
   def create
@@ -21,9 +20,20 @@ class Admins::ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admins_items_(@item)
+      flash[:notice_update] = "ジャンル情報を更新しました！"
+    else
+      redirect_to edit_admins_items_path(@item)
+    end
   end
 
   def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
     @item = Item.find(params[:id])
   end
 end

@@ -15,12 +15,17 @@
       <td><%= customer.id %></td>
       <td><%= link_to customer.name ,admins_customer_path(customer) %></td>
       <td><%= customer.email %></td>
-      <td><%= if customer.is_active == false %>
+      <td><% if customer.is_active == false %>
               有効
               <% else %>
               無効
               <% end %>
       </td>
+
+    </tr>
+    <tr>
+      <td><%= link_to "編集する", edit_admins_customer_path(customer) %></td>
+      <td><%= link_to "注文履歴一覧を見る", show_admins_customer_path(customer) %> </td>
     </tr>
     <% end %>
   </tbody>

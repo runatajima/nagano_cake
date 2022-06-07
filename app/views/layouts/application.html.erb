@@ -20,6 +20,11 @@
         <span>商品一覧</span>
          <% end %>
       </li>
+      <li >
+         <%= link_to destroy_public_session_path, method: :delete do %>
+         <span > ログアウト</span>
+          <% end %>
+     </li>
     <% elsif admin_signed_in? %>
      <li>
         <%= link_to "/admins/items"  do %>
